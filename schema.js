@@ -25,8 +25,20 @@ const RootQuery = new GraphQLObjectType({
         clubs: {
             type: new GraphQLList(ClubInfo),
             resolve(parent, args) {
-                return axios.get('https://public.allaboutapps.at/hiring/clubs.json')
+                return axios
+                    .get('https://public.allaboutapps.at/hiring/clubs.json')
                     .then(res => res.data)
+            }
+        },
+        club: {
+            type: ClubInfo,
+            args: {
+                club_number: { type: GraphQLInt }
+            },
+            resolve(parent, args) {
+                return axios
+                    .get('https://public.allaboutapps.at/hiring/clubs.json')
+                    .then(res => res.data[args.club_number])
             }
         }
     }
