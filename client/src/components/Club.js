@@ -37,6 +37,7 @@ class Club extends Component {
                         )
                     }}
                 </Query>
+                <NavLink to="/">Back</NavLink>
             </Fragment>
         );
     }
