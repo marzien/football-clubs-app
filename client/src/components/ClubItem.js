@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -18,19 +19,21 @@ const ClubItem = (props) => {
     const classes = useStyles();
 
     return (
-    <List dense className={classes.root}>
-        <ListItem>
-            <ListItemAvatar>
-                <Avatar
-                    alt = {name}
-                    src = {image}>
-                </Avatar>
-            </ListItemAvatar>
-        <ListItemText 
-            primary={name} 
-            secondary={`${country} ${value} Millionen Euro`} />
-      </ListItem>
-    </List>
+        <List dense className={classes.root}>
+            <NavLink to={`/club/${props.club_number}`} style={{ textDecoration: 'none' }}>
+                    <ListItem>
+                        <ListItemAvatar>
+                            <Avatar
+                                alt = {name}
+                                src = {image}>
+                            </Avatar>
+                        </ListItemAvatar>
+                    <ListItemText 
+                        primary={name} 
+                        secondary={`${country} ${value} Millionen Euro`} />
+                    </ListItem>
+            </NavLink>
+        </List>
     );
 }
  

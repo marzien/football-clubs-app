@@ -26,7 +26,7 @@ class Clubs extends Component {
                         return (
                             <Fragment>
                                 {data.clubs.map((club, i) => (
-                                    <ClubItem key={i} club={club} />
+                                    <ClubItem key={i} club_number={i} club={club} />
                                 ))}
                             </Fragment>
                         )
