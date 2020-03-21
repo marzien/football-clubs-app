@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
@@ -6,12 +6,20 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
+import Typography from '@material-ui/core/Typography';
+
+const ListItemLink = (props) => {
+    return <ListItem button component="a" {...props} />;
+}
 
 const useStyles = makeStyles(theme => ({
     root: {
       width: '100%',
-      backgroundColor: theme.palette.background.paper,
+      backgroundColor: theme.palette.background.paper
     },
+    inline: {
+        display: 'inline',
+      },
   }));
 
 const ClubItem = (props) => {
@@ -19,20 +27,30 @@ const ClubItem = (props) => {
     const classes = useStyles();
 
     return (
-        <List dense className={classes.root}>
-            <NavLink to={`/club/${props.club_number}`} style={{ textDecoration: 'none' }}>
-                    <ListItem>
-                        <ListItemAvatar>
-                            <Avatar
-                                alt = {name}
-                                src = {image}>
-                            </Avatar>
-                        </ListItemAvatar>
+        <List className={classes.root}>
+            <ListItemLink href={`/club/${props.club_number}`} >
+                <ListItemAvatar>
+                    <Avatar
+                        alt = {name}
+                        src = {image}>
+                    </Avatar>
+                </ListItemAvatar>
                     <ListItemText 
                         primary={name} 
-                        secondary={`${country} ${value} Millionen Euro`} />
-                    </ListItem>
-            </NavLink>
+                        secondary={
+                            <Fragment>
+                                <Typography
+                                    component="span"
+                                    variant="body2"
+                                    className={classes.inline}
+                                    color="textPrimary"
+                                >
+                                   {country} 
+                                </Typography>
+                                {` ${value} Millionen Euro`}
+                            </Fragment>
+                            } />
+            </ListItemLink>
         </List>
     );
 }

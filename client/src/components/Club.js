@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import { NavLink } from 'react-router-dom';
+import AppNavBar from './AppNavBar';
 
 const CLUB_QUERY = gql`
     query ClubsQuery($club_number: Int!) {
@@ -21,6 +22,7 @@ class Club extends Component {
         club_number = parseInt(club_number)
         return (
             <Fragment>
+                <AppNavBar />
                 <Query query={CLUB_QUERY} variables={{club_number}}>
                     {({ loading, error, data }) => {
                         if (loading) return <h4>Loading...</h4>;

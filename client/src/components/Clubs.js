@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
-import ClubItem from './ClubItem'
+import ClubItem from './ClubItem';
+import AppNavBar from './AppNavBar';
 
 const CLUBS_QUERY = gql`
     query ClubsQuery {
@@ -18,6 +19,7 @@ class Clubs extends Component {
     render() { 
         return (
             <Fragment>
+                <AppNavBar />
                 <Query query={CLUBS_QUERY}>
                     {({ loading, error, data }) => {
                         if (loading) return <h4>Loading...</h4>;
