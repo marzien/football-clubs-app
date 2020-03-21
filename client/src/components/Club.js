@@ -30,7 +30,7 @@ class Club extends Component {
 
                         return (
                             <Fragment>
-                                <img src={image} />
+                                <img src={image} alt={name}/>
                                 <h2>{country}</h2>
                                 <div>Der Club <b>{name}</b> aus {country} hat eine Wert von {value} Milion Euro.</div>
                             </Fragment>
