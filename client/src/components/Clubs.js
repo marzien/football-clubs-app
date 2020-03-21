@@ -19,7 +19,7 @@ class Clubs extends Component {
     render() { 
         return (
             <Fragment>
-                <AppNavBar />
+                <AppNavBar caption={"all about clubs"} />
                 <Query query={CLUBS_QUERY}>
                     {({ loading, error, data }) => {
                         if (loading) return <h4>Loading...</h4>;

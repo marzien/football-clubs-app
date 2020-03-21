@@ -22,16 +22,16 @@ class Club extends Component {
         club_number = parseInt(club_number)
         return (
             <Fragment>
-                <AppNavBar />
                 <Query query={CLUB_QUERY} variables={{club_number}}>
                     {({ loading, error, data }) => {
                         if (loading) return <h4>Loading...</h4>;
                         if (error) console.log(error);
-
+                        
                         const {image, country, name, value} = data.club;
-
+                        
                         return (
                             <Fragment>
+                                <AppNavBar caption={name}/>
                                 <img src={image} alt={name}/>
                                 <h2>{country}</h2>
                                 <div>Der Club <b>{name}</b> aus {country} hat eine Wert von {value} Milion Euro.</div>
