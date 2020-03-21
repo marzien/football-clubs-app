@@ -3,6 +3,7 @@ import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import { NavLink } from 'react-router-dom';
 import AppNavBar from './AppNavBar';
+import Spinner from './Spinner';
 
 const CLUB_QUERY = gql`
     query ClubsQuery($club_number: Int!) {
@@ -24,7 +25,7 @@ class Club extends Component {
             <Fragment>
                 <Query query={CLUB_QUERY} variables={{club_number}}>
                     {({ loading, error, data }) => {
-                        if (loading) return <h4>Loading...</h4>;
+                        if (loading) return <Spinner />;
                         if (error) console.log(error);
                         
                         const {image, country, name, value} = data.club;
