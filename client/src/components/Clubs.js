@@ -20,15 +20,15 @@ class Clubs extends Component {
     render() { 
         return (
             <Fragment>
-                <AppNavBar caption={"all about clubs"} />
                 <Query query={CLUBS_QUERY}>
                     {({ loading, error, data }) => {
                         if (loading) return (<Spinner />)
                         ;
                         if (error) console.log(error);
-
+                        
                         return (
                             <Fragment>
+                                <AppNavBar caption={"all about clubs"} filter/>
                                 {data.clubs.map((club, i) => (
                                     <ClubItem key={i} club_number={i} club={club} />
                                 ))}

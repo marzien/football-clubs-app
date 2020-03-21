@@ -6,6 +6,9 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faSort } from '@fortawesome/free-solid-svg-icons'
+import { NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,12 +30,22 @@ export default function AppNavBar(props) {
       <CssBaseline />
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-          </IconButton>
+          {props.backButton ? 
+            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+              <NavLink to="/">
+                <FontAwesomeIcon icon={faArrowLeft} color="white" />
+              </NavLink>
+            </IconButton>
+             : null}
           <Typography variant="h6" className={classes.title}>
             {props.caption}
           </Typography>
-          <Button color="inherit">Login</Button>
+          {props.filter ? 
+            // <Button color="inherit">Filter</Button>
+              <IconButton>
+                <FontAwesomeIcon icon={faSort} color="white" />
+              </IconButton>
+              : null}
         </Toolbar>
       </AppBar>
     </div>

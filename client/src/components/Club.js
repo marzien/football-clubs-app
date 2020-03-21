@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-import { NavLink } from 'react-router-dom';
 import AppNavBar from './AppNavBar';
 import Spinner from './Spinner';
 
@@ -32,7 +31,7 @@ class Club extends Component {
                         
                         return (
                             <Fragment>
-                                <AppNavBar caption={name}/>
+                                <AppNavBar caption={name} backButton/>
                                 <img src={image} alt={name}/>
                                 <h2>{country}</h2>
                                 <div>Der Club <b>{name}</b> aus {country} hat eine Wert von {value} Milion Euro.</div>
@@ -40,7 +39,6 @@ class Club extends Component {
                         )
                     }}
                 </Query>
-                <NavLink to="/">Back</NavLink>
             </Fragment>
         );
     }
