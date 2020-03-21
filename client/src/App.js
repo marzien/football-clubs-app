@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Grid, Paper, Typography } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import Clubs from './components/Clubs';
 import Club from './components/Club';
 
