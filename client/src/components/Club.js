@@ -26,7 +26,7 @@ class Club extends Component {
                         if (loading) return <Spinner />;
                         if (error) console.log(error);
                         
-                        const {image, country, name, value} = data.club;
+                        const {image, country, name, value, european_titles} = data.club;
 
                         return (
                             <Fragment>
@@ -36,6 +36,7 @@ class Club extends Component {
                                     <h2 style={{ position: 'absolute', left: '15px', bottom: '15px', color: 'white' }}>{country}</h2>
                                 </div>
                                 <p>Der Club <b>{name}</b> aus {country} hat eine Wert von {value} Milion Euro.</p>
+                                <p><b>{name}</b>konnte bislang {european_titles} Siege auf europäischer Ebene erreichen.</p>
                             </Fragment>
                         )
                     }}
