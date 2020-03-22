@@ -41,8 +41,8 @@ export default function AppNavBar(props) {
           </Typography>
           {props.filter ? 
             // <Button color="inherit">Filter</Button>
-              <IconButton>
-                <FontAwesomeIcon icon={faSort} color="white" onClick={props.clickHandler}/>
+              <IconButton onClick={props.clickHandler}>
+                <FontAwesomeIcon icon={faSort} color="white" />
               </IconButton>
               : null}
         </Toolbar>
