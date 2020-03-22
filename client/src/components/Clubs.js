@@ -24,7 +24,6 @@ class Clubs extends Component {
     }
 
     outputEvent(event) {
-        // the event context comes from the Child
         this.setState({ sort: !this.state.sort });
     }
 
@@ -55,7 +54,7 @@ class Clubs extends Component {
                                         }
                                       })
                                     .map((club, i) => (
-                                    <ClubItem key={i} club_number={i} club={club} />
+                                        <ClubItem key={i} club_name={club.name} club={club} />
                                 ))}
                             </Fragment>
                         )

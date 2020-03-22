@@ -5,8 +5,8 @@ import AppNavBar from './AppNavBar';
 import Spinner from './Spinner';
 
 const CLUB_QUERY = gql`
-    query ClubsQuery($club_number: Int!) {
-        club(club_number: $club_number) {
+    query ClubsQuery($club_name: String!) {
+        club(club_name: $club_name) {
             name
             country
             value
@@ -18,17 +18,16 @@ const CLUB_QUERY = gql`
 
 class Club extends Component {
     render() { 
-        let { club_number } = this.props.match.params;
-        club_number = parseInt(club_number)
+        let { club_name } = this.props.match.params;
         return (
             <Fragment>
-                <Query query={CLUB_QUERY} variables={{club_number}}>
+                <Query query={CLUB_QUERY} variables={{club_name}}>
                     {({ loading, error, data }) => {
                         if (loading) return <Spinner />;
                         if (error) console.log(error);
                         
                         const {image, country, name, value} = data.club;
-                        
+
                         return (
                             <Fragment>
                                 <AppNavBar caption={name} backButton/>

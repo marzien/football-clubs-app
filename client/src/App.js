@@ -18,7 +18,7 @@ function App() {
           <div style={{ marginTop: 20, padding: 30 }}>
             <Grid container spacing={40} justify="center">
               <Route exact path="/" component={Clubs} />
-              <Route exact path="/club/:club_number" component={Club} />
+              <Route exact path="/club/:club_name" component={Club} />
             </Grid>
           </div>
         </Fragment>

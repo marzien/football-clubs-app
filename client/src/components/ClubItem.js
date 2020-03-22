@@ -27,7 +27,7 @@ const ClubItem = (props) => {
 
     return (
         <List className={classes.root}>
-            <ListItemLink href={`/club/${props.club_number}`} >
+            <ListItemLink href={`/club/${props.club_name}`} >
                 <ListItemAvatar>
                     <Avatar
                         alt = {name}

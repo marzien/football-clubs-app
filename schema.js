@@ -33,12 +33,12 @@ const RootQuery = new GraphQLObjectType({
         club: {
             type: ClubInfo,
             args: {
-                club_number: { type: GraphQLInt }
+                club_name: { type: GraphQLString }
             },
             resolve(parent, args) {
                 return axios
                     .get('https://public.allaboutapps.at/hiring/clubs.json')
-                    .then(res => res.data[args.club_number])
+                    .then(res => res.data.find(o => o.name === args.club_name))
             }
         }
     }
