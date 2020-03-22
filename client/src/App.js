@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Grid } from "@material-ui/core";
 import Clubs from './components/Clubs';
 import Club from './components/Club';
 
@@ -16,10 +15,8 @@ function App() {
       <Router>
         <Fragment>
           <div style={{ marginTop: 20, padding: 30 }}>
-            <Grid container spacing={0} justify="center">
               <Route exact path="/" component={Clubs} />
               <Route exact path="/club/:club_name" component={Club} />
-            </Grid>
           </div>
         </Fragment>
       </Router>

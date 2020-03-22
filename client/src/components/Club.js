@@ -31,9 +31,11 @@ class Club extends Component {
                         return (
                             <Fragment>
                                 <AppNavBar caption={name} backButton/>
-                                <img src={image} alt={name}/>
-                                <h2>{country}</h2>
-                                <div>Der Club <b>{name}</b> aus {country} hat eine Wert von {value} Milion Euro.</div>
+                                <div style={{ background: '#262627', textAlign: "center", padding: "15px 0", position: 'relative' }}>
+                                    <img src={image} alt={name}/>
+                                    <h2 style={{ position: 'absolute', left: '15px', bottom: '15px', color: 'white' }}>{country}</h2>
+                                </div>
+                                <p>Der Club <b>{name}</b> aus {country} hat eine Wert von {value} Milion Euro.</p>
                             </Fragment>
                         )
                     }}
