@@ -19,6 +19,9 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
   },
+  barBackground: {
+    background: '#01C13B'
+  }
 }));
 
 export default function AppNavBar(props) {
@@ -27,7 +30,7 @@ export default function AppNavBar(props) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar position="static">
+      <AppBar position="static" className={classes.barBackground}>
         <Toolbar>
           {props.backButton ? 
             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
