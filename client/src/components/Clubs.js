@@ -29,7 +29,19 @@ class Clubs extends Component {
                         return (
                             <Fragment>
                                 <AppNavBar caption={"all about clubs"} filter/>
-                                {data.clubs.map((club, i) => (
+                                {data.clubs
+                                    .sort((a, b) => {
+                                        var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+                                        var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+                                        if (nameA < nameB) {
+                                          return -1; //nameA comes first
+                                        }
+                                        if (nameA > nameB) {
+                                          return 1; // nameB comes first
+                                        }
+                                        return 0;  // names must be equal
+                                      })
+                                    .map((club, i) => (
                                     <ClubItem key={i} club_number={i} club={club} />
                                 ))}
                             </Fragment>
