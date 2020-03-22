@@ -42,7 +42,7 @@ export default function AppNavBar(props) {
           {props.filter ? 
             // <Button color="inherit">Filter</Button>
               <IconButton>
-                <FontAwesomeIcon icon={faSort} color="white" />
+                <FontAwesomeIcon icon={faSort} color="white" onClick={props.clickHandler}/>
               </IconButton>
               : null}
         </Toolbar>

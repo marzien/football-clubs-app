@@ -17,6 +17,17 @@ const CLUBS_QUERY = gql`
 `;
 
 class Clubs extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { sort: true };
+        this.outputEvent = this.outputEvent.bind(this);
+    }
+
+    outputEvent(event) {
+        // the event context comes from the Child
+        this.setState({ sort: !this.state.sort });
+    }
+
     render() { 
         return (
             <Fragment>
@@ -28,18 +39,20 @@ class Clubs extends Component {
                         
                         return (
                             <Fragment>
-                                <AppNavBar caption={"all about clubs"} filter/>
+                                <AppNavBar caption={"all about clubs"} filter clickHandler={this.outputEvent}/>
                                 {data.clubs
                                     .sort((a, b) => {
-                                        var nameA = a.name.toUpperCase(); // ignore upper and lowercase
-                                        var nameB = b.name.toUpperCase(); // ignore upper and lowercase
-                                        if (nameA < nameB) {
-                                          return -1; //nameA comes first
+                                        if (this.state.sort) {
+                                            let nameA = a.name.toUpperCase();
+                                            let nameB = b.name.toUpperCase();
+                                            if (nameA < nameB) { return -1 }
+                                            if (nameA > nameB) { return 1 }
+                                            return 0;
+                                        } else {
+                                            if (a.value > b.value) { return -1 }
+                                            if (a.value < b.value) { return 1 }
+                                            return 0;
                                         }
-                                        if (nameA > nameB) {
-                                          return 1; // nameB comes first
-                                        }
-                                        return 0;  // names must be equal
                                       })
                                     .map((club, i) => (
                                     <ClubItem key={i} club_number={i} club={club} />
