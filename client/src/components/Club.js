@@ -36,7 +36,7 @@ class Club extends Component {
                                     <h2 style={{ position: 'absolute', left: '15px', bottom: '15px', color: 'white' }}>{country}</h2>
                                 </div>
                                 <p>Der Club <b>{name}</b> aus {country} hat einen Wert von {value} Milion Euro.</p>
-                                <p><b>{name}</b> konnte bislang {european_titles} {european_titles < 2 ? 'Sieg' : 'Siege'} auf europäischer Ebene erreichen.</p>
+                                <p><b>{name}</b> konnte bislang {european_titles} {european_titles === 1 ? 'Sieg' : 'Siege'} auf europäischer Ebene erreichen.</p>
                             </Fragment>
                         )
                     }}
